@@ -11,23 +11,31 @@ class Song{
         Song *prevSong;
         Song *nextSong;
 
-    public:
+    public: 
+        Song(string title, string artist, string genre, string file);
+
+        Song(string title, string file);
+        Song(string title, string artist, string file);
+        Song(string title, string genre, string file);
+
+        string empty = "None";
+
         Song* getPrevSong();
         Song* getNextSong();
-        void setPrevSong();
-        void setNextSong();
+        void setPrevSong(Song* node);
+        void setNextSong(Song* node);
 
 
         string getArtistName();
-        void setArtistName();
+        void setArtistName(string artist);
 
         string getSongTitle();
-        void setSongTitle();
+        void setSongTitle(string title);
         
         string getSongGenre();
-        void setSongGenre();
+        void setSongGenre(string genre);
         
         string getFileName();
-        void setFileName();
+        void setFileName(string file);
  
-}
+};
