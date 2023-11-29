@@ -8,6 +8,7 @@ private:
 
 public:
     void displayMenu();
+    Song createSong();
     void selectOption(char option);
     void displayOpening();
 
