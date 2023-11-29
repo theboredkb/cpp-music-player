@@ -9,6 +9,9 @@ private:
 public:
     void displayMenu();
     void selectOption(char option);
+    void displayOpening();
+
+    void displayBar();
 };
 
 #endif

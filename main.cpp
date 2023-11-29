@@ -1,7 +1,32 @@
 #include <iostream>
+#include "menu/menu.h"
 using namespace std;
 
 int main(){
+
+    Menu newUser;
+
+    bool isActive = true;
+    char userInput;
+
+    newUser.displayOpening();
+    newUser.displayBar();
+
+    while(isActive){
+        newUser.displayMenu();
+
+        cin >> userInput;
+        userInput = tolower(userInput);
+        newUser.selectOption(userInput);
+
+        if(userInput == 'q'){
+            isActive = false;
+        }
+    }
+
+    exit(0);
+
+    return 0;
 
     
 }

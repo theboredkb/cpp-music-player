@@ -14,11 +14,8 @@ class Song{
     public: 
         Song(string title, string artist, string genre, string file);
 
-        Song(string title, string file);
-        Song(string title, string artist, string file);
-        Song(string title, string genre, string file);
 
-        string empty = "None";
+        string EMPTY = "None";
 
         Song* getPrevSong();
         Song* getNextSong();
