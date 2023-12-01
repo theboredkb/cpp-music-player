@@ -26,7 +26,7 @@ void Menu::displayMenu() {
     cout << "         | (c) Sort By Genre      |" << endl;
     cout << "         | (d) Sort By Album      |" << endl;
     cout << "         | (e) List Current Order |" << endl;
-    cout << "         | (f) Exit               |" << endl;
+    cout << "         | (q) Exit               |" << endl;
     cout << "         --------------------------" << endl;
 }
 

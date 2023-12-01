@@ -4,6 +4,13 @@ SongList::SongList() : headSong(nullptr), tailSong(nullptr), sorted(nullptr) {}
 
 void SongList::printSong()
 {
+    Song* current = headSong;
+
+    while(current != nullptr){
+        cout << current->getSongTitle() << endl;
+
+        current = current->getNextSong();
+    }
 }
 
 void SongList::push_back(string title, string artist, string  genre, string file)
@@ -44,7 +51,7 @@ void SongList::setTailSong(Song* node)
     tailSong = node;
 }
 
-Song *SongList::getSorted()
+Song* SongList::getSorted()
 {
     return sorted;
 }
@@ -52,6 +59,26 @@ Song *SongList::getSorted()
 void SongList::setSorted(Song *node)
 {
     sorted = node;
+}
+
+void SongList::printSorted()
+{   Song* current = sorted;
+
+    while(current != nullptr){
+        cout << current->getSongTitle() << endl;
+
+        current = current->getNextSong();
+    }
+}
+
+void SongList::resetSorted()
+{
+    Song* temp;
+    while(sorted != nullptr){
+        temp = sorted->getNextSong();
+        delete sorted;
+        sorted = temp;
+    }
 }
 
 void SongList::sortTitle()
@@ -71,6 +98,7 @@ void SongList::sortTitle()
 }
 
 void SongList::sortInsertTitle(Song* node){
+    
     if (sorted == nullptr || sorted->getSongTitle() > node->getSongTitle()) { 
             node->setNextSong(sorted); 
             sorted = node; 
