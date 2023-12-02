@@ -1,6 +1,5 @@
 #include "song.h"
 
-
 Song::Song(string title, string artist, string genre, string file) :songTitle(title), artistName(artist), songGenre(genre), fileName(file), nextSong(nullptr), prevSong(nullptr) {}
 
 Song *Song::getPrevSong()

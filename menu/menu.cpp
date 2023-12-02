@@ -44,9 +44,11 @@ Song Menu::createSong() {
   try {
     cout << "Enter your song title below: " << endl;
     cin >> songTitle;
+    if (songTitle == "") throw songTitle;
     cout << "Enter the artist of your song below: " << endl;
     cin >> songArtist;
-    cout << "Enter the artist of your" << endl;
+    if (songArtist == "") throw songArtist;
+    cout << "Enter the genre of your song below: " << endl;
 
   } catch (string e) {
     cout << e << " cannot be empty!" << endl;

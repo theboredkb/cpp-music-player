@@ -11,7 +11,8 @@ class Song{
         Song *prevSong;
         Song *nextSong;
 
-    public: 
+    public:
+        Song();
         Song(string title, string artist, string genre, string file);
 
 
@@ -28,11 +29,11 @@ class Song{
 
         string getSongTitle();
         void setSongTitle(string title);
-        
+
         string getSongGenre();
         void setSongGenre(string genre);
-        
+
         string getFileName();
         void setFileName(string file);
- 
+
 };
