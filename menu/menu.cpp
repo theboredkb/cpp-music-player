@@ -1,10 +1,8 @@
-#include "menu.h"
-
 #include <ctype.h>
-
 #include <iostream>
 
 #include "songlist.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -22,15 +20,15 @@ void Menu::displayOpening() {
 }
 
 void Menu::displayMenu() {
-  cout << "         --------------------------" << endl;
-  cout << "         |          Menu          |" << endl;
-  cout << "         | (a) Add to Music List  |" << endl;
-  cout << "         | (b) Sort By Song       |" << endl;
-  cout << "         | (c) Sort By Genre      |" << endl;
-  cout << "         | (d) Sort By Album      |" << endl;
-  cout << "         | (e) List Current Order |" << endl;
-  cout << "         | (q) Exit               |" << endl;
-  cout << "         --------------------------" << endl;
+  cout << "         //////////////////////////////////" << endl;
+  cout << "         //             Menu             //" << endl;
+  cout << "         //     (a) Add to Music List    //" << endl;
+  cout << "         //     (b) Sort By Song         //" << endl;
+  cout << "         //     (c) Sort By Genre        //" << endl;
+  cout << "         //     (d) Sort By Album        //" << endl;
+  cout << "         //     (e) List Current Order   //" << endl;
+  cout << "         //     (q) Exit                 //" << endl;
+  cout << "         //////////////////////////////////" << endl;
 }
 
 Song Menu::createSong() {

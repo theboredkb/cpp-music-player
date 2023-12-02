@@ -1,4 +1,5 @@
 #include "song.h"
+#include <iostream>
 using namespace std;
 
 class SongList{
@@ -22,6 +23,9 @@ class SongList{
 
         Song* getSorted();
         void setSorted(Song* node);
+        void printSorted();
+
+        void resetSorted();
 
         /// Sort ///////////////////////////////////// Check if this works before duplicate
         void sortTitle();
