@@ -82,7 +82,6 @@ void Menu::selectOption(char option) {
       break;
     case 'b':
       // Sort By Song
-
       songList.sortTitle();
 
         
@@ -94,13 +93,19 @@ void Menu::selectOption(char option) {
       break;
     case 'd':
       // Sort By Genre
+      //songList.sortGenre();
+
       break;
     case 'e':
       // Sort By Album
+      //songList.sortAlbum();
+
       break;
 
     case 'f':
       // Sort By File Name
+      //songList.sortFile();
+      
       break;
 
     case 'g':
