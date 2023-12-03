@@ -4,12 +4,12 @@ SongList::SongList() : headSong(nullptr), tailSong(nullptr), sorted(nullptr) {}
 
 void SongList::printSong()
 {
-    Song* current = headSong;
+    Song* currentSong = headSong;
 
-    while(current != nullptr){
-        cout << "Song: " << current->getSongTitle() << ", Artist: " << current->getArtistName() << ", Genre: " << current->getSongGenre() << ", Album: " << current->getSongAlbum() << ", FileName: " << current->getFileName() << endl;
+    while(currentSong != nullptr){
+        cout << "Song: " << currentSong->getSongTitle() << ", Artist: " << currentSong->getArtistName() << ", Genre: " << currentSong->getSongGenre() << ", Album: " << currentSong->getSongAlbum() << ", FileName: " << currentSong->getFileName() << endl;
 
-        current = current->getNextSong();
+        currentSong = currentSong->getNextSong();
     }
 }
 
@@ -61,7 +61,20 @@ void SongList::setSorted(Song *node)
     sorted = node;
 }
 
-void SongList::printSorted()
+void SongList::resetSorted()
+{
+    Song* temp;
+    while(sorted != nullptr){
+        temp = sorted->getNextSong();
+        delete sorted;
+        sorted = temp;
+    }
+    setSorted(nullptr);
+}
+
+////////////////////////////////////////////////////////////////////Printing Sorts
+
+void SongList::printSortedSong()
 {   Song* current = sorted;
 
     while(current != nullptr){
@@ -71,21 +84,59 @@ void SongList::printSorted()
     }
 }
 
-void SongList::resetSorted()
+void SongList::printSortedArtist()
 {
-    Song* temp;
-    while(sorted != nullptr){
-        temp = sorted->getNextSong();
-        delete sorted;
-        sorted = temp;
+    Song* current = sorted;
+
+    while(current != nullptr){
+        cout << current->getArtistName() << endl;
+
+        current = current->getNextSong();
     }
 }
 
+void SongList::printSortedGenre()
+{
+    Song* current = sorted;
+
+    while(current != nullptr){
+        cout << current->getSongGenre() << endl;
+
+        current = current->getNextSong();
+    }
+}
+
+void SongList::printSortedAlbum()
+{
+    Song* current = sorted;
+
+    while(current != nullptr){
+        cout << current->getSongAlbum() << endl;
+
+        current = current->getNextSong();
+    }
+}
+
+void SongList::printSortedFile()
+{
+    Song* current = sorted;
+
+    while(current != nullptr){
+        cout << current->getFileName() << endl;
+
+        current = current->getNextSong();
+    }
+}
+
+/////////////////////////////////////////////////////////////////Sorting
+
+
 void SongList::sortTitle()
 {
-    sorted = nullptr;
+    resetSorted();
     Song* current = headSong;
 
+    cout << ":::Sorted by Song:::" << endl;
     while(current != nullptr){
         Song* next = current->getNextSong();
 
@@ -94,17 +145,18 @@ void SongList::sortTitle()
         current = next;
 
     }
+    printSortedSong();
 
 }
 
 void SongList::sortInsertTitle(Song* node){
     
-    if (sorted == nullptr || sorted->getSongTitle() > node->getSongTitle()) { 
+    if (getSorted() == nullptr || sorted->getSongTitle() > node->getSongTitle()) { 
             node->setNextSong(sorted); 
-            sorted = node; 
+            setSorted(node); 
         } 
         else { 
-            Song* current = sorted; 
+            Song* current = getSorted(); 
 
             while (current->getNextSong() != nullptr && current->getNextSong()->getSongTitle() < node->getSongTitle()) { 
                 current = current->getNextSong(); 
@@ -114,3 +166,62 @@ void SongList::sortInsertTitle(Song* node){
         } 
 }
 
+void SongList::sortArtist()
+{
+    resetSorted();
+    Song* current = headSong;
+
+    cout << ":::Sorted by Song:::" << endl;
+    while(current != nullptr){
+        Song* next = current->getNextSong();
+
+        sortInsertArtist(current);
+
+        current = next;
+
+    }
+
+    printSortedArtist();
+}
+
+void SongList::sortInsertArtist(Song *node)
+{
+    if (sorted == nullptr || sorted->getArtistName() > node->getArtistName()) { 
+            node->setNextSong(sorted); 
+            sorted = node; 
+        } 
+        else { 
+            Song* current = sorted; 
+
+            while (current->getNextSong() != nullptr && current->getNextSong()->getArtistName() < node->getArtistName()) { 
+                current = current->getNextSong(); 
+            } 
+            node->setNextSong(current->getNextSong()); 
+            current->setNextSong(node); 
+        } 
+}
+
+void SongList::sortGenre()
+{
+    
+}
+
+void SongList::sortInsertGenre(Song *node)
+{
+}
+
+void SongList::sortAlbum()
+{
+}
+
+void SongList::sortInsertAlbum(Song *node)
+{
+}
+
+void SongList::sortFile()
+{
+}
+
+void SongList::sortInsertFile(Song *node)
+{
+}

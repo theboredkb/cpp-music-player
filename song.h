@@ -7,8 +7,9 @@ class Song{
         string artistName;
         string songTitle;
         string songGenre;
-        string fileName;
         string songAlbum;
+        string fileName;
+        
 
         Song *prevSong;
         Song *nextSong;

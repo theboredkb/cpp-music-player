@@ -30,9 +30,11 @@ void Menu::displayMenu()
     cout << "         //             Menu             //" << endl;
     cout << "         //     (a) Add to Music List    //" << endl;
     cout << "         //     (b) Sort By Song         //" << endl;
-    cout << "         //     (c) Sort By Genre        //" << endl;
-    cout << "         //     (d) Sort By Album        //" << endl;
-    cout << "         //     (e) List Current Order   //" << endl;
+    cout << "         //     (c) Sort By Artist       //" << endl;
+    cout << "         //     (d) Sort By Genre        //" << endl;
+    cout << "         //     (e) Sort By Album        //" << endl;
+    cout << "         //     (f) Sort By File Name    //" << endl;
+    cout << "         //     (g) List Current Order   //" << endl;
     cout << "         //     (q) Exit                 //" << endl;
     cout << "         //////////////////////////////////" << endl;
 }
@@ -80,19 +82,28 @@ void Menu::selectOption(char option) {
       break;
     case 'b':
       // Sort By Song
-            
 
-            songList.push_back(Song("Geddan", "Faa", "Pop", "Leggoo", "geddan.mp3"));
-            songList.push_back(Song("B", "B", "B", "B", "b.mp3"));
+      songList.sortTitle();
+
         
       break;
     case 'c':
-      // Sort By Genre
+      // Sort By Artist
+      songList.sortArtist();
+
       break;
     case 'd':
-      // Sort By Album
+      // Sort By Genre
       break;
     case 'e':
+      // Sort By Album
+      break;
+
+    case 'f':
+      // Sort By File Name
+      break;
+
+    case 'g':
       // List Current Order
       songList.printSong();
       break;

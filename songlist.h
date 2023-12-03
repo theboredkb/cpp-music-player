@@ -23,12 +23,30 @@ class SongList{
 
         Song* getSorted();
         void setSorted(Song* node);
-        void printSorted();
+        void printSortedSong();
+        void printSortedArtist();
+        void printSortedGenre();
+        void printSortedAlbum();
+        void printSortedFile();
+
 
         void resetSorted();
 
         /// Sort ///////////////////////////////////// Check if this works before duplicate
         void sortTitle();
         void sortInsertTitle(Song* node);
+
+        void sortArtist();
+        void sortInsertArtist(Song* node);
+
+        void sortGenre();
+        void sortInsertGenre(Song* node);
+
+        void sortAlbum();
+        void sortInsertAlbum(Song* node);
+
+        void sortFile();
+        void sortInsertFile(Song* node);
+
     
 };
