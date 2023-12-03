@@ -137,14 +137,6 @@ void SongList::sortTitle()
     resetSorted();
     Song* current = headSong;
 
-    Song* original = headSong;
-    cout << " ORIGINAL LIST " << endl;
-     while(original != nullptr){
-        cout << "Song: " << original->getSongTitle() << ", Artist: " << original->getArtistName() << ", Genre: " << original->getSongGenre() << ", Album: " << original->getSongAlbum() << ", FileName: " << original->getFileName() << endl;
-
-        original = original->getNextSong();
-    }
-
     cout << ":::Sorted by Song:::" << endl;
     while(current != nullptr){
         Song* next = current->getNextSong();
@@ -183,7 +175,7 @@ void SongList::sortArtist()
     resetSorted();
     Song* current = headSong;
 
-    cout << ":::Sorted by Song:::" << endl;
+    cout << ":::Sorted by Artist:::" << endl;
     while(current != nullptr){
         Song* next = current->getNextSong();
 
