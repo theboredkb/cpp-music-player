@@ -48,16 +48,22 @@ Song Menu::createSong() {
   string songFile;
 
   try {
+    getline(cin, songTitle);
+
     cout << "Enter your song title below: " << endl;
-    cin >> songTitle;
+    getline(cin, songTitle);
+
     cout << "Enter the artist of your song below: " << endl;
-    cin >> songArtist;
+    getline(cin, songArtist);
+
     cout << "Enter the genre below: " << endl;
-    cin >> songGenre;
+    getline(cin, songGenre);
+
     cout << "Enter the album below: " << endl;
-    cin >> songAlbum;
+    getline(cin, songAlbum);
+    
     cout << "Enter the filename below: " << endl;
-    cin >> songFile;
+    getline(cin, songFile);
     
 
   } catch (string e) {
