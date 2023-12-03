@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 using namespace std;
 
@@ -7,12 +8,13 @@ class Song{
         string songTitle;
         string songGenre;
         string fileName;
+        string songAlbum;
 
         Song *prevSong;
         Song *nextSong;
 
     public: 
-        Song(string title, string artist, string genre, string file);
+        Song(string title, string artist, string genre, string album, string file);
 
 
         string EMPTY = "None";
@@ -31,8 +33,13 @@ class Song{
         
         string getSongGenre();
         void setSongGenre(string genre);
+
+        string getSongAlbum();
+        void setSongAlbum(string album);
         
         string getFileName();
         void setFileName(string file);
+
+        
  
 };

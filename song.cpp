@@ -1,7 +1,6 @@
 #include "song.h"
 
-
-Song::Song(string title, string artist, string genre, string file) :songTitle(title), artistName(artist), songGenre(genre), fileName(file), nextSong(nullptr), prevSong(nullptr) {}
+Song::Song(string title, string artist, string genre, string album, string file) : songTitle(title), artistName(artist), songGenre(genre), songAlbum(album), fileName(file), nextSong(nullptr), prevSong(nullptr) {}
 
 Song *Song::getPrevSong()
 {
@@ -52,6 +51,16 @@ string Song::getSongGenre()
 void Song::setSongGenre(string genre)
 {
     songGenre = genre;
+}
+
+string Song::getSongAlbum()
+{
+    return songAlbum;
+}
+
+void Song::setSongAlbum(string album)
+{
+    songAlbum = album;
 }
 
 string Song::getFileName()

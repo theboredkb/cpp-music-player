@@ -1,3 +1,4 @@
+#pragma once
 #include "song.h"
 #include <iostream>
 using namespace std;
@@ -13,8 +14,7 @@ class SongList{
         SongList();
 
         void printSong();
-        void push_back(string title, string artist, string  genre, string file);
-        void insert_before();
+        void push_back(Song node);
 
         Song* getHeadSong();
         Song* getTailSong();

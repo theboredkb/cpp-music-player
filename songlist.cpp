@@ -7,27 +7,27 @@ void SongList::printSong()
     Song* current = headSong;
 
     while(current != nullptr){
-        cout << current->getSongTitle() << endl;
+        cout << "Song: " << current->getSongTitle() << ", Artist: " << current->getArtistName() << ", Genre: " << current->getSongGenre() << ", Album: " << current->getSongAlbum() << ", FileName: " << current->getFileName() << endl;
 
         current = current->getNextSong();
     }
 }
 
-void SongList::push_back(string title, string artist, string  genre, string file)
+void SongList::push_back(Song node)
 {
-    Song* tempNode = new Song(title, artist, genre, file);
-    if (headSong == nullptr) {
-        headSong = tempNode;
+    Song* tempNode = new Song(node);
+
+    if (getHeadSong() == nullptr) {
+        setHeadSong(tempNode);
+        setTailSong(tempNode);
     } else {
         tailSong->setNextSong(tempNode);
+        
         tempNode->setPrevSong(tailSong);
-        tailSong = tempNode;
+        setTailSong(tempNode);
     }
 }
 
-void SongList::insert_before()
-{
-}
 
 
 
