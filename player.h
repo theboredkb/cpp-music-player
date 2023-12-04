@@ -14,7 +14,6 @@ class Player {
   ~Player();
 
   void loadSong(string fileName);
-  void playSong(string fileName);
-  void pauseSong();
+  void playSong();
   void stopSong();
 };
