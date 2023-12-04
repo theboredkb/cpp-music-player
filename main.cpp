@@ -1,5 +1,5 @@
 #include <iostream>
-#include "menu/menu.h"
+#include "menu.h"
 using namespace std;
 
 int main(){
@@ -18,6 +18,8 @@ int main(){
         cin >> userInput;
         userInput = tolower(userInput);
         newUser.selectOption(userInput);
+
+        
 
         if(userInput == 'q'){
             isActive = false;

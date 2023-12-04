@@ -1,3 +1,4 @@
+#pragma once
 #include "song.h"
 #include <iostream>
 using namespace std;
@@ -13,8 +14,7 @@ class SongList{
         SongList();
 
         void printSong();
-        void push_back(string title, string artist, string  genre, string file);
-        void insert_before();
+        void push_back(Song node);
 
         Song* getHeadSong();
         Song* getTailSong();
@@ -23,12 +23,30 @@ class SongList{
 
         Song* getSorted();
         void setSorted(Song* node);
-        void printSorted();
+        void printSortedSong();
+        void printSortedArtist();
+        void printSortedGenre();
+        void printSortedAlbum();
+        void printSortedFile();
+
 
         void resetSorted();
 
         /// Sort ///////////////////////////////////// Check if this works before duplicate
         void sortTitle();
         void sortInsertTitle(Song* node);
+
+        void sortArtist();
+        void sortInsertArtist(Song* node);
+
+        void sortGenre();
+        void sortInsertGenre(Song* node);
+
+        void sortAlbum();
+        void sortInsertAlbum(Song* node);
+
+        void sortFile();
+        void sortInsertFile(Song* node);
+
     
 };

@@ -1,8 +1,10 @@
+#include "menu.h"
+
 #include <ctype.h>
+
 #include <iostream>
 
 #include "songlist.h"
-#include "menu.h"
 
 using namespace std;
 
@@ -47,7 +49,11 @@ Song Menu::createSong() {
     cin >> songArtist;
     if (songArtist == "") throw songArtist;
     cout << "Enter the genre of your song below: " << endl;
-
+    cin >> songGenre;
+    if (songGenre == "") throw songArtist;
+    cout << "Enter the file name of your song below: " << endl;
+    cin >> songFile;
+    if (songFile == "") throw songArtist;
   } catch (string e) {
     cout << e << " cannot be empty!" << endl;
   }

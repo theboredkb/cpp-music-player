@@ -12,7 +12,6 @@ class Song{
         Song *nextSong;
 
     public:
-        Song();
         Song(string title, string artist, string genre, string file);
 
 

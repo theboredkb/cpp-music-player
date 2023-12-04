@@ -1,12 +1,16 @@
+#pragma once
 #ifndef MENU_H
 #define MENU_H
 
-// #include "songlist.h"
+#include "songlist.h"
+
 class Menu {
 private:
-    // SongList songList;
+    SongList songList;
 
 public:
+    Menu();
+
     void displayMenu();
     Song createSong();
     void selectOption(char option);
