@@ -1,5 +1,5 @@
 #pragma once
-#include "../song/songlist.h"
+#include "songlist.h"
 
 class Menu {
  private:
