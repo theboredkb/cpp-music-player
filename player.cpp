@@ -44,5 +44,7 @@ void Player::playSong() {
 void Player::stopSong() {
   if ((*this).songLoaded) {
     ma_sound_stop(&(*this).currentSong);
+    ma_sound_uninit(&(*this).currentSong);
+    (*this).songLoaded = false;
   }
 }
