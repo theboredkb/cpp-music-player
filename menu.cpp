@@ -36,6 +36,10 @@ void Menu::displayMenu() {
 
 Song Menu::createSong() {
   displayBar();
+
+  // Used as a temporary fix to flush the cin buffer
+  string init;
+
   string songTitle;
   string songArtist;
   string songGenre;
@@ -43,29 +47,30 @@ Song Menu::createSong() {
   string songFile;
 
   try {
-    getline(cin, songTitle);
+    // Temporary fix to flush it
+    getline(cin, init);
 
     cout << "Enter your song title below: " << endl;
     getline(cin, songTitle);
-    if (songTitle == "") throw songTitle;
+    if (songTitle.empty()) throw string("Title");
 
     cout << "Enter the artist of your song below: " << endl;
     getline(cin, songArtist);
-    if (songArtist == "") throw songArtist;
+    if (songArtist.empty()) throw string("Artist");
 
     cout << "Enter the genre below: " << endl;
     getline(cin, songGenre);
-    if (songGenre == "") throw songGenre;
+    if (songGenre.empty()) throw string("Genre");
 
     cout << "Enter the album below: " << endl;
     getline(cin, songAlbum);
 
     cout << "Enter the filename below: " << endl;
     getline(cin, songFile);
-    if (songFile == "") throw songFile;
+    if (songFile.empty()) throw string("File");
 
   } catch (string e) {
-    cout << e << " cannot be empty!" << endl;
+    cout << e << " of the song cannot be empty!" << endl;
   }
 
   return Song(songTitle, songArtist, songGenre, songAlbum, songFile);
