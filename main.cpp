@@ -1,34 +1,30 @@
 #include <iostream>
-#include "menu.h"
+
+#include "menu/menu.h"
 using namespace std;
 
-int main(){
+int main() {
+  Menu newUser;
 
-    Menu newUser;
+  bool isActive = true;
+  char userInput;
 
-    bool isActive = true;
-    char userInput;
+  newUser.displayOpening();
+  newUser.displayBar();
 
-    newUser.displayOpening();
-    newUser.displayBar();
+  while (isActive) {
+    newUser.displayMenu();
 
-    while(isActive){
-        newUser.displayMenu();
+    cin >> userInput;
+    userInput = tolower(userInput);
+    newUser.selectOption(userInput);
 
-        cin >> userInput;
-        userInput = tolower(userInput);
-        newUser.selectOption(userInput);
-
-        
-
-        if(userInput == 'q'){
-            isActive = false;
-        }
+    if (userInput == 'q') {
+      isActive = false;
     }
+  }
 
-    exit(0);
+  exit(0);
 
-    return 0;
-
-    
+  return 0;
 }

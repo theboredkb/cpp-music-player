@@ -1,38 +1,38 @@
 #include <string>
 using namespace std;
 
-class Song{
-    private:
-        string artistName;
-        string songTitle;
-        string songGenre;
-        string fileName;
+class Song {
+ private:
+  string artistName;
+  string songTitle;
+  string songGenre;
+  string songAlbum;
+  string fileName;
 
-        Song *prevSong;
-        Song *nextSong;
+  Song* prevSong;
+  Song* nextSong;
 
-    public:
-        Song(string title, string artist, string genre, string file);
+ public:
+  Song(string title, string artist, string genre, string album, string file);
 
+  Song* getPrevSong();
+  Song* getNextSong();
+  void setPrevSong(Song* node);
+  void setNextSong(Song* node);
 
-        string EMPTY = "None";
+  string getArtistName();
+  void setArtistName(string artist);
 
-        Song* getPrevSong();
-        Song* getNextSong();
-        void setPrevSong(Song* node);
-        void setNextSong(Song* node);
+  string getSongTitle();
+  void setSongTitle(string title);
 
+  string getSongGenre();
+  void setSongGenre(string genre);
 
-        string getArtistName();
-        void setArtistName(string artist);
+  string getSongAlbum();
 
-        string getSongTitle();
-        void setSongTitle(string title);
+  void setSongAlbum(string album);
 
-        string getSongGenre();
-        void setSongGenre(string genre);
-
-        string getFileName();
-        void setFileName(string file);
-
+  string getFileName();
+  void setFileName(string file);
 };

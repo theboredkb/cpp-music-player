@@ -1,14 +1,12 @@
-#include <ctype.h>
-#include <iostream>
-
-#include "songlist.h"
 #include "menu.h"
+
+#include <ctype.h>
+
+#include <iostream>
 
 using namespace std;
 
-Menu::Menu()
-{
-}
+Menu::Menu() {}
 
 void Menu::displayOpening() {
   cout << "         //////////////////////////////////" << endl;
@@ -22,21 +20,18 @@ void Menu::displayOpening() {
   cout << "         //////////////////////////////////" << endl;
 }
 
-
-
-void Menu::displayMenu()
-{
-    cout << "         //////////////////////////////////" << endl;
-    cout << "         //             Menu             //" << endl;
-    cout << "         //     (a) Add to Music List    //" << endl;
-    cout << "         //     (b) Sort By Song         //" << endl;
-    cout << "         //     (c) Sort By Artist       //" << endl;
-    cout << "         //     (d) Sort By Genre        //" << endl;
-    cout << "         //     (e) Sort By Album        //" << endl;
-    cout << "         //     (f) Sort By File Name    //" << endl;
-    cout << "         //     (g) List Current Order   //" << endl;
-    cout << "         //     (q) Exit                 //" << endl;
-    cout << "         //////////////////////////////////" << endl;
+void Menu::displayMenu() {
+  cout << "         //////////////////////////////////" << endl;
+  cout << "         //             Menu             //" << endl;
+  cout << "         //     (a) Add to Music List    //" << endl;
+  cout << "         //     (b) Sort By Song         //" << endl;
+  cout << "         //     (c) Sort By Artist       //" << endl;
+  cout << "         //     (d) Sort By Genre        //" << endl;
+  cout << "         //     (e) Sort By Album        //" << endl;
+  cout << "         //     (f) Sort By File Name    //" << endl;
+  cout << "         //     (g) List Current Order   //" << endl;
+  cout << "         //     (q) Exit                 //" << endl;
+  cout << "         //////////////////////////////////" << endl;
 }
 
 Song Menu::createSong() {
@@ -52,19 +47,22 @@ Song Menu::createSong() {
 
     cout << "Enter your song title below: " << endl;
     getline(cin, songTitle);
+    if (songTitle == "") throw songTitle;
 
     cout << "Enter the artist of your song below: " << endl;
     getline(cin, songArtist);
+    if (songArtist == "") throw songArtist;
 
     cout << "Enter the genre below: " << endl;
     getline(cin, songGenre);
+    if (songGenre == "") throw songGenre;
 
     cout << "Enter the album below: " << endl;
     getline(cin, songAlbum);
-    
+
     cout << "Enter the filename below: " << endl;
     getline(cin, songFile);
-    
+    if (songFile == "") throw songFile;
 
   } catch (string e) {
     cout << e << " cannot be empty!" << endl;
@@ -83,14 +81,12 @@ void Menu::selectOption(char option) {
     case 'a':
       // Add to Music List
       songList.push_back(createSong());
-      
-      
+
       break;
     case 'b':
       // Sort By Song
       songList.sortTitle();
 
-        
       break;
     case 'c':
       // Sort By Artist
@@ -99,19 +95,19 @@ void Menu::selectOption(char option) {
       break;
     case 'd':
       // Sort By Genre
-      //songList.sortGenre();
+      // songList.sortGenre();
 
       break;
     case 'e':
       // Sort By Album
-      //songList.sortAlbum();
+      // songList.sortAlbum();
 
       break;
 
     case 'f':
       // Sort By File Name
-      //songList.sortFile();
-      
+      // songList.sortFile();
+
       break;
 
     case 'g':
