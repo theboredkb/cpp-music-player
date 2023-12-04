@@ -1,9 +1,20 @@
 #pragma once
+#define MINIAUDIO_IMPLEMENTATION
+#include "miniaudio.h"
 #include "songlist.h"
 
 class Player {
-public:
-  void playSong(Song currSong);
-  bool pauseSong(Song currSong);
-  bool stopSong(Song currSong);
+ private:
+  ma_engine engine;
+  ma_sound currentSong;
+  bool songLoaded;
+
+ public:
+  Player();
+  ~Player();
+
+  void loadSong(string fileName);
+  void playSong(string fileName);
+  void pauseSong();
+  void stopSong();
 };
