@@ -48,3 +48,13 @@ void Player::stopSong() {
     (*this).songLoaded = false;
   }
 }
+
+float Player::getSongLength() {
+  float length;
+  if ((*this).songLoaded) {
+    ma_data_source_get_length_in_seconds(&(*this).currentSong, &length);
+    return length;
+  } else {
+    return 0;
+  }
+}

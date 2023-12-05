@@ -16,4 +16,5 @@ class Player {
   void loadSong(string fileName);
   void playSong();
   void stopSong();
+  float getSongLength();
 };
