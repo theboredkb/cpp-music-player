@@ -73,6 +73,34 @@ void SongList::resetSorted()
     setSorted(nullptr);
 }
 
+void SongList::searchSong(string word)
+{
+    Song* currentSong = headSong;
+
+    while(currentSong != nullptr){
+        
+
+        currentSong = currentSong->getNextSong();
+    }
+    cout << endl;
+}
+
+void SongList::searchArtist(string word)
+{
+}
+
+void SongList::searchGenre(string word)
+{
+}
+
+void SongList::searchAlbum(string word)
+{
+}
+
+void SongList::searchFile(string word)
+{
+}
+
 ////////////////////////////////////////////////////////////////////Printing Sorts
 
 void SongList::printSortedSong()

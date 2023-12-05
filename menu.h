@@ -16,6 +16,9 @@ public:
     void selectOption(char option);
     void displayOpening();
 
+    void searchMenu();
+    void searchOption();
+    
     void displayBar();
 };
 

@@ -35,8 +35,49 @@ void Menu::displayMenu()
     cout << "         //     (e) Sort By Album        //" << endl;
     cout << "         //     (f) Sort By File Name    //" << endl;
     cout << "         //     (g) List Current Order   //" << endl;
+    cout << "         //     (h) Search Song List     //" << endl;
     cout << "         //     (q) Exit                 //" << endl;
     cout << "         //////////////////////////////////" << endl;
+}
+
+void Menu::searchMenu()
+{
+    cout << "         //////////////////////////////////" << endl;
+    cout << "         //            Search            //" << endl;
+    cout << "         //     (a) Sort By Song         //" << endl;
+    cout << "         //     (b) Sort By Artist       //" << endl;
+    cout << "         //     (c) Sort By Genre        //" << endl;
+    cout << "         //     (d) Sort By Album        //" << endl;
+    cout << "         //     (e) Sort By File Name    //" << endl;
+    cout << "         //////////////////////////////////" << endl;
+}
+
+void Menu::searchOption()
+{
+  char userOption;
+  char userInput;
+
+  cin >> userOption;
+
+
+  userOption = tolower(userOption);
+  
+    cout << "Enter below: " << endl;
+  switch(userOption) {
+    case 'a':
+    break;
+    case 'b':
+    break;
+    case 'c':
+    break;
+    case 'd':
+    break;
+    case 'e':
+    break;
+    
+    default:
+    cout << "Not found in the song list" << endl;
+  }
 }
 
 Song Menu::createSong() {
@@ -118,6 +159,11 @@ void Menu::selectOption(char option) {
       // List Current Order
       songList.printSong();
       break;
+
+    case 'h':
+      searchMenu();
+      break;
+
     case 'q':
       cout << "Exited." << endl;
       break;
