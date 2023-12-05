@@ -43,14 +43,14 @@ Song* SongList::getSorted() { return sorted; }
 
 void SongList::setSorted(Song* node) { sorted = node; }
 
-void SongList::resetSorted() {
-  Song* temp;
-  while (sorted != nullptr) {
-    temp = sorted->getNextSong();
-    delete sorted;
-    sorted = temp;
+void SongList::resetSorted(){
+  Song* current = sorted;
+  while (current != nullptr) {
+    Song* temp = current->getNextSong();
+    delete current;
+    current = temp;
   }
-  setSorted(nullptr);
+  sorted = nullptr;
 }
 
 void SongList::searchSong(string word)
@@ -192,26 +192,24 @@ void SongList::printSortedFile() {
 /////////////////////////////////////////////////////////////////Sorting
 
 void SongList::sortTitle() {
-  resetSorted();
+  SongList sortedList; 
   Song* current = headSong;
 
   cout << ":::Sorted by Song:::" << endl;
   while (current != nullptr) {
     Song* next = current->getNextSong();
-
-    sortInsertTitle(current);
-
+    sortedList.sortInsertTitle(new Song(*current));
     current = next;
   }
-  printSortedSong();
+  sortedList.printSortedSong();
 }
 
 void SongList::sortInsertTitle(Song* node) {
-  if (getSorted() == nullptr || sorted->getSongTitle() > node->getSongTitle()) {
+  if (sorted == nullptr || sorted->getSongTitle() > node->getSongTitle()) {
     node->setNextSong(sorted);
-    setSorted(node);
+    sorted = node;
   } else {
-    Song* current = getSorted();
+    Song* current = sorted;
 
     while (current->getNextSong() != nullptr &&
            current->getNextSong()->getSongTitle() < node->getSongTitle()) {
@@ -223,19 +221,17 @@ void SongList::sortInsertTitle(Song* node) {
 }
 
 void SongList::sortArtist() {
-  resetSorted();
+  SongList sortedList;  
   Song* current = headSong;
 
   cout << ":::Sorted by Artist:::" << endl;
   while (current != nullptr) {
     Song* next = current->getNextSong();
-
-    sortInsertArtist(current);
-
+    sortedList.sortInsertArtist(new Song(*current));  
     current = next;
   }
 
-  printSortedArtist();
+  sortedList.printSortedArtist();  
 }
 
 void SongList::sortInsertArtist(Song* node) {
