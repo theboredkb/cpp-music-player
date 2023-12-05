@@ -32,6 +32,12 @@ class SongList{
 
         void resetSorted();
 
+        void searchSong(string word);
+        void searchArtist(string word);
+        void searchGenre(string word);
+        void searchAlbum(string word);
+        void searchFile(string word);
+
         /// Sort ///////////////////////////////////// Check if this works before duplicate
         void sortTitle();
         void sortInsertTitle(Song* node);

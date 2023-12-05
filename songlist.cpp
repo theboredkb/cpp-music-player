@@ -56,58 +56,85 @@ void SongList::resetSorted() {
 void SongList::searchSong(string word)
 {
     Song* currentSong = headSong;
+    bool isExist = false;
 
-    while(currentSong != nullptr){
-        
-
-        currentSong = currentSong->getNextSong();
-    }
-    cout << endl;
+  while (currentSong != nullptr) {
+    if(currentSong->getSongTitle() == word){ isExist = true; }
+    currentSong = currentSong->getNextSong();
+  }
+  if(isExist){ 
+    cout << "Song is in the List" << endl;
+  }
+  else{ cout << "Not found in the song list" << endl; }
+  cout << endl;
 }
 
 void SongList::searchArtist(string word)
-{
-}
-
-void SongList::searchGenre(string word)
-{
-}
-
-void SongList::searchAlbum(string word)
-{
-}
-
-void SongList::searchFile(string word)
-{
-}
-
-void SongList::searchSong(string word)
 {
     Song* currentSong = headSong;
+    bool isExist = false;
 
-    while(currentSong != nullptr){
-        
-
-        currentSong = currentSong->getNextSong();
-    }
-    cout << endl;
-}
-
-void SongList::searchArtist(string word)
-{
+  while (currentSong != nullptr) {
+    if(currentSong->getArtistName() == word){ isExist = true; }
+    currentSong = currentSong->getNextSong();
+  }
+  if(isExist){ 
+    cout << "Artist is in the List" << endl;
+  }
+  else{ cout << "Not found in the song list" << endl; }
+  cout << endl;
 }
 
 void SongList::searchGenre(string word)
 {
+    Song* currentSong = headSong;
+    bool isExist = false;
+
+  while (currentSong != nullptr) {
+    if(currentSong->getSongGenre() == word){ isExist = true; }
+    currentSong = currentSong->getNextSong();
+  }
+  if(isExist){ 
+    cout << "Genre is in the List" << endl;
+  }
+  else{ cout << "Not found in the song list" << endl; }
+  cout << endl;
 }
 
 void SongList::searchAlbum(string word)
 {
+    Song* currentSong = headSong;
+    bool isExist = false;
+
+  while (currentSong != nullptr) {
+    if(currentSong->getSongAlbum() == word){ isExist = true; }
+    currentSong = currentSong->getNextSong();
+  }
+  if(isExist){ 
+    cout << "Album is in the List" << endl;
+  }
+  else{ cout << "Not found in the song list" << endl; }
+  cout << endl;
 }
 
 void SongList::searchFile(string word)
 {
+    Song* currentSong = headSong;
+    bool isExist = false;
+
+  while (currentSong != nullptr) {
+    if(currentSong->getFileName() == word){ isExist = true; }
+    currentSong = currentSong->getNextSong();
+  }
+  if(isExist){ 
+    cout << "File is in the List" << endl;
+  }
+  else{ cout << "Not found in the song list" << endl; }
+  cout << endl;
 }
+
+
+
 
 ////////////////////////////////////////////////////////////////////Printing
 ///Sorts

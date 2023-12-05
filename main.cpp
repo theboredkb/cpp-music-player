@@ -20,7 +20,7 @@ int main() {
     newUser.selectOption(userInput);
 
         if(userInput == 'h'){
-            
+            newUser.searchOption();
         }
 
         if(userInput == 'q'){

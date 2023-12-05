@@ -52,8 +52,9 @@ void Menu::searchMenu()
 
 void Menu::searchOption()
 {
+  searchMenu();
   char userOption;
-  char userInput;
+  string userInput;
 
   cin >> userOption;
 
@@ -61,20 +62,26 @@ void Menu::searchOption()
   userOption = tolower(userOption);
   
     cout << "Enter below: " << endl;
+    cin >> userInput;
   switch(userOption) {
     case 'a':
+    songList.searchSong(userInput);
     break;
     case 'b':
+    songList.searchArtist(userInput);
     break;
     case 'c':
+    songList.searchGenre(userInput);
     break;
     case 'd':
+    songList.searchAlbum(userInput);
     break;
     case 'e':
+    songList.searchFile(userInput);
     break;
     
     default:
-    cout << "Not found in the song list" << endl;
+    cout << "Invalid Option" << endl;
   }
 }
 
