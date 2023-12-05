@@ -151,18 +151,18 @@ void Menu::selectOption(char option) {
       break;
     case 'd':
       // Sort By Genre
-      // songList.sortGenre();
+      songList.sortGenre();
 
       break;
     case 'e':
       // Sort By Album
-      // songList.sortAlbum();
+      songList.sortAlbum();
 
       break;
 
     case 'f':
       // Sort By File Name
-      // songList.sortFile();
+      songList.sortFile();
 
       break;
 

@@ -55,8 +55,8 @@ void SongList::resetSorted(){
 
 void SongList::searchSong(string word)
 {
-    Song* currentSong = headSong;
-    bool isExist = false;
+  Song* currentSong = headSong;
+  bool isExist = false;
 
   while (currentSong != nullptr) {
     if(currentSong->getSongTitle() == word){ isExist = true; }
@@ -87,8 +87,8 @@ void SongList::searchArtist(string word)
 
 void SongList::searchGenre(string word)
 {
-    Song* currentSong = headSong;
-    bool isExist = false;
+  Song* currentSong = headSong;
+  bool isExist = false;
 
   while (currentSong != nullptr) {
     if(currentSong->getSongGenre() == word){ isExist = true; }
@@ -103,8 +103,8 @@ void SongList::searchGenre(string word)
 
 void SongList::searchAlbum(string word)
 {
-    Song* currentSong = headSong;
-    bool isExist = false;
+  Song* currentSong = headSong;
+  bool isExist = false;
 
   while (currentSong != nullptr) {
     if(currentSong->getSongAlbum() == word){ isExist = true; }
@@ -119,8 +119,8 @@ void SongList::searchAlbum(string word)
 
 void SongList::searchFile(string word)
 {
-    Song* currentSong = headSong;
-    bool isExist = false;
+  Song* currentSong = headSong;
+  bool isExist = false;
 
   while (currentSong != nullptr) {
     if(currentSong->getFileName() == word){ isExist = true; }
@@ -202,6 +202,7 @@ void SongList::sortTitle() {
     current = next;
   }
   sortedList.printSortedSong();
+  sortedList.resetSorted();
 }
 
 void SongList::sortInsertTitle(Song* node) {
@@ -232,6 +233,7 @@ void SongList::sortArtist() {
   }
 
   sortedList.printSortedArtist();  
+  sortedList.resetSorted();
 }
 
 void SongList::sortInsertArtist(Song* node) {
@@ -250,14 +252,95 @@ void SongList::sortInsertArtist(Song* node) {
   }
 }
 
-void SongList::sortGenre() {}
+void SongList::sortGenre() {
+  SongList sortedList;
+  Song* current = headSong;
 
-void SongList::sortInsertGenre(Song* node) {}
+  cout << ":::Sorted by Genre:::" << endl;
+  while (current != nullptr) {
+    Song* next = current->getNextSong();
+    sortedList.sortInsertGenre(new Song(*current));
+    current = next;
+  }
 
-void SongList::sortAlbum() {}
+  sortedList.printSortedGenre();
+  sortedList.resetSorted();
+}
 
-void SongList::sortInsertAlbum(Song* node) {}
+void SongList::sortInsertGenre(Song* node) {
+  if (sorted == nullptr || sorted->getSongGenre() > node->getSongGenre()) {
+    node->setNextSong(sorted);
+    sorted = node;
+  } else {
+    Song* current = sorted;
 
-void SongList::sortFile() {}
+    while (current->getNextSong() != nullptr &&
+           current->getNextSong()->getSongGenre() < node->getSongGenre()) {
+      current = current->getNextSong();
+    }
+    node->setNextSong(current->getNextSong());
+    current->setNextSong(node);
+  }
+}
 
-void SongList::sortInsertFile(Song* node) {}
+void SongList::sortAlbum() {
+  SongList sortedList;
+  Song* current = headSong;
+
+  cout << ":::Sorted by Album:::" << endl;
+  while (current != nullptr) {
+    Song* next = current->getNextSong();
+    sortedList.sortInsertAlbum(new Song(*current));
+    current = next;
+  }
+
+  sortedList.printSortedAlbum();
+  sortedList.resetSorted();
+}
+
+void SongList::sortInsertAlbum(Song* node) {
+  if (sorted == nullptr || sorted->getSongAlbum() > node->getSongAlbum()) {
+    node->setNextSong(sorted);
+    sorted = node;
+  } else {
+    Song* current = sorted;
+
+    while (current->getNextSong() != nullptr &&
+           current->getNextSong()->getSongAlbum() < node->getSongAlbum()) {
+      current = current->getNextSong();
+    }
+    node->setNextSong(current->getNextSong());
+    current->setNextSong(node);
+  }
+}
+
+void SongList::sortFile() {
+  SongList sortedList;
+  Song* current = headSong;
+
+  cout << ":::Sorted by File Name:::" << endl;
+  while (current != nullptr) {
+    Song* next = current->getNextSong();
+    sortedList.sortInsertFile(new Song(*current));
+    current = next;
+  }
+
+  sortedList.printSortedFile();
+  sortedList.resetSorted();
+}
+
+void SongList::sortInsertFile(Song* node) {
+  if (sorted == nullptr || sorted->getFileName() > node->getFileName()) {
+    node->setNextSong(sorted);
+    sorted = node;
+  } else {
+    Song* current = sorted;
+
+    while (current->getNextSong() != nullptr &&
+           current->getNextSong()->getFileName() < node->getFileName()) {
+      current = current->getNextSong();
+    }
+    node->setNextSong(current->getNextSong());
+    current->setNextSong(node);
+  }
+}
