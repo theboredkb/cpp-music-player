@@ -1,58 +1,57 @@
 #pragma once
-#include "song.h"
 #include <iostream>
+
+#include "song.h"
 using namespace std;
 
-class SongList{
-    private:
-        Song* headSong;
-        Song* tailSong;
+class SongList {
+ private:
+  Song* headSong;
+  Song* tailSong;
 
-        Song* sorted;
+  Song* sorted;
 
-    public:
-        SongList();
+ public:
+  SongList();
 
-        void printSong();
-        void push_back(Song node);
+  void printSong();
+  void push_back(Song node);
 
-        Song* getHeadSong();
-        Song* getTailSong();
-        void setHeadSong(Song* node);
-        void setTailSong(Song* node);
+  Song* getHeadSong();
+  Song* getTailSong();
+  void setHeadSong(Song* node);
+  void setTailSong(Song* node);
 
-        Song* getSorted();
-        void setSorted(Song* node);
-        void printSortedSong();
-        void printSortedArtist();
-        void printSortedGenre();
-        void printSortedAlbum();
-        void printSortedFile();
+  Song* getSorted();
+  void setSorted(Song* node);
+  void printSortedSong();
+  void printSortedArtist();
+  void printSortedGenre();
+  void printSortedAlbum();
+  void printSortedFile();
 
+  void resetSorted();
 
-        void resetSorted();
+  void searchSong(string word);
+  void searchArtist(string word);
+  void searchGenre(string word);
+  void searchAlbum(string word);
+  void searchFile(string word);
 
-        void searchSong(string word);
-        void searchArtist(string word);
-        void searchGenre(string word);
-        void searchAlbum(string word);
-        void searchFile(string word);
+  /// Sort ///////////////////////////////////// Check if this works before
+  /// duplicate
+  void sortTitle();
+  void sortInsertTitle(Song* node);
 
-        /// Sort ///////////////////////////////////// Check if this works before duplicate
-        void sortTitle();
-        void sortInsertTitle(Song* node);
+  void sortArtist();
+  void sortInsertArtist(Song* node);
 
-        void sortArtist();
-        void sortInsertArtist(Song* node);
+  void sortGenre();
+  void sortInsertGenre(Song* node);
 
-        void sortGenre();
-        void sortInsertGenre(Song* node);
+  void sortAlbum();
+  void sortInsertAlbum(Song* node);
 
-        void sortAlbum();
-        void sortInsertAlbum(Song* node);
-
-        void sortFile();
-        void sortInsertFile(Song* node);
-
-    
+  void sortFile();
+  void sortInsertFile(Song* node);
 };
