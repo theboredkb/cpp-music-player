@@ -1,11 +1,11 @@
 #pragma once
-// #include "player.h"
+#include "player.h"
 #include "songlist.h"
 
 class Menu {
  private:
   SongList songList;
-  // Player player;
+  Player player;
 
  public:
   Menu();

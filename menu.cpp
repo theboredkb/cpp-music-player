@@ -37,7 +37,7 @@ void Menu::displayMenu() {
   cout << "         //     (f) Sort By File Name    //" << endl;
   cout << "         //     (g) List Current Order   //" << endl;
   cout << "         //     (h) Search Song List     //" << endl;
-  cout << "         //     (p) Play Song List     //" << endl;
+  cout << "         //     (p) Play Song List       //" << endl;
   cout << "         //     (q) Exit                 //" << endl;
   cout << "         //////////////////////////////////" << endl;
 }
@@ -140,15 +140,13 @@ void Menu::playSongList() {
   }
 
   while (songHead != nullptr) {
-    // player.loadSong(songHead->getFileName());
-    // player.playSong();
+    player.loadSong(songHead->getFileName());
     displayBar();
     cout << "Playing " << songHead->getSongTitle() << " by "
          << songHead->getArtistName() << endl;
     displayBar();
-    // float songDuration = player.getSongLength();
-    float songDuration = 30.00;
-
+    float songDuration = player.getSongLength();
+    // float songDuration = 10.00;
     while (songDuration > 0) {
       sleep(1);
       cout << "Song duration: " << songDuration << endl;

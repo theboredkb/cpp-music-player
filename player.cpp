@@ -34,12 +34,7 @@ void Player::loadSong(string fileName) {
   } else {
     (*this).songLoaded = true;
   }
-}
-
-void Player::playSong() {
-  if ((*this).songLoaded) {
-    ma_sound_start(&(*this).currentSong);
-  }
+  ma_sound_start(&(*this).currentSong);
 }
 
 void Player::stopSong() {
@@ -53,7 +48,7 @@ void Player::stopSong() {
 float Player::getSongLength() {
   float length;
   if ((*this).songLoaded) {
-    ma_data_source_get_length_in_seconds(&(*this).currentSong, &length);
+    ma_sound_get_length_in_seconds(&(*this).currentSong, &length);
     return length;
   } else {
     return 0;

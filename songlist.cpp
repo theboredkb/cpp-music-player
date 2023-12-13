@@ -43,7 +43,7 @@ Song* SongList::getSorted() { return sorted; }
 
 void SongList::setSorted(Song* node) { sorted = node; }
 
-void SongList::resetSorted(){
+void SongList::resetSorted() {
   Song* current = sorted;
   while (current != nullptr) {
     Song* temp = current->getNextSong();
@@ -53,91 +53,98 @@ void SongList::resetSorted(){
   sorted = nullptr;
 }
 
-void SongList::searchSong(string word)
-{
+void SongList::searchSong(string word) {
   Song* currentSong = headSong;
   bool isExist = false;
 
   while (currentSong != nullptr) {
-    if(currentSong->getSongTitle() == word){ isExist = true; }
+    if (currentSong->getSongTitle() == word) {
+      isExist = true;
+    }
     currentSong = currentSong->getNextSong();
   }
-  if(isExist){ 
+  if (isExist) {
     cout << "Song is in the List" << endl;
+  } else {
+    cout << "Not found in the song list" << endl;
   }
-  else{ cout << "Not found in the song list" << endl; }
   cout << endl;
 }
 
-void SongList::searchArtist(string word)
-{
-    Song* currentSong = headSong;
-    bool isExist = false;
+void SongList::searchArtist(string word) {
+  Song* currentSong = headSong;
+  bool isExist = false;
 
   while (currentSong != nullptr) {
-    if(currentSong->getArtistName() == word){ isExist = true; }
+    if (currentSong->getArtistName() == word) {
+      isExist = true;
+    }
     currentSong = currentSong->getNextSong();
   }
-  if(isExist){ 
+  if (isExist) {
     cout << "Artist is in the List" << endl;
+  } else {
+    cout << "Not found in the song list" << endl;
   }
-  else{ cout << "Not found in the song list" << endl; }
   cout << endl;
 }
 
-void SongList::searchGenre(string word)
-{
+void SongList::searchGenre(string word) {
   Song* currentSong = headSong;
   bool isExist = false;
 
   while (currentSong != nullptr) {
-    if(currentSong->getSongGenre() == word){ isExist = true; }
+    if (currentSong->getSongGenre() == word) {
+      isExist = true;
+    }
     currentSong = currentSong->getNextSong();
   }
-  if(isExist){ 
+  if (isExist) {
     cout << "Genre is in the List" << endl;
+  } else {
+    cout << "Not found in the song list" << endl;
   }
-  else{ cout << "Not found in the song list" << endl; }
   cout << endl;
 }
 
-void SongList::searchAlbum(string word)
-{
+void SongList::searchAlbum(string word) {
   Song* currentSong = headSong;
   bool isExist = false;
 
   while (currentSong != nullptr) {
-    if(currentSong->getSongAlbum() == word){ isExist = true; }
+    if (currentSong->getSongAlbum() == word) {
+      isExist = true;
+    }
     currentSong = currentSong->getNextSong();
   }
-  if(isExist){ 
+  if (isExist) {
     cout << "Album is in the List" << endl;
+  } else {
+    cout << "Not found in the song list" << endl;
   }
-  else{ cout << "Not found in the song list" << endl; }
   cout << endl;
 }
 
-void SongList::searchFile(string word)
-{
+void SongList::searchFile(string word) {
   Song* currentSong = headSong;
   bool isExist = false;
 
   while (currentSong != nullptr) {
-    if(currentSong->getFileName() == word){ isExist = true; }
+    if (currentSong->getFileName() == word) {
+      isExist = true;
+    }
     currentSong = currentSong->getNextSong();
   }
-  if(isExist){ 
+  if (isExist) {
     cout << "File is in the List" << endl;
+  } else {
+    cout << "Not found in the song list" << endl;
   }
-  else{ cout << "Not found in the song list" << endl; }
   cout << endl;
 }
-
-
-
 
 ////////////////////////////////////////////////////////////////////Printing
-///Sorts
+/// Sorts
 
 void SongList::printSortedSong() {
   Song* current = sorted;
@@ -192,7 +199,7 @@ void SongList::printSortedFile() {
 /////////////////////////////////////////////////////////////////Sorting
 
 void SongList::sortTitle() {
-  SongList sortedList; 
+  SongList sortedList;
   Song* current = headSong;
 
   cout << ":::Sorted by Song:::" << endl;
@@ -222,17 +229,17 @@ void SongList::sortInsertTitle(Song* node) {
 }
 
 void SongList::sortArtist() {
-  SongList sortedList;  
+  SongList sortedList;
   Song* current = headSong;
 
   cout << ":::Sorted by Artist:::" << endl;
   while (current != nullptr) {
     Song* next = current->getNextSong();
-    sortedList.sortInsertArtist(new Song(*current));  
+    sortedList.sortInsertArtist(new Song(*current));
     current = next;
   }
 
-  sortedList.printSortedArtist();  
+  sortedList.printSortedArtist();
   sortedList.resetSorted();
 }
 
