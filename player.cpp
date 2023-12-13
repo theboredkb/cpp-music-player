@@ -1,4 +1,6 @@
 #include "player.h"
+#define MINIAUDIO_IMPLEMENTATION
+#include "miniaudio.h"
 
 Player::Player() {
   (*this).songLoaded = false;
@@ -16,7 +18,6 @@ Player::~Player() {
 
 void Player::loadSong(string fileName) {
   ma_result result;
-  ma_sound sound;
 
   const char* cPath = fileName.c_str();
 
@@ -26,11 +27,11 @@ void Player::loadSong(string fileName) {
 
   (*this).songLoaded = false;
 
-  result = ma_sound_init_from_file(&engine, cPath, 0, NULL, NULL, &sound);
+  result = ma_sound_init_from_file(&engine, cPath, 0, NULL, NULL,
+                                   &(*this).currentSong);
   if (result != MA_SUCCESS) {
     cout << "Warning! Song could not be loaded." << endl;
   } else {
-    (*this).currentSong = sound;
     (*this).songLoaded = true;
   }
 }

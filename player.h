@@ -1,5 +1,5 @@
-#pragma once
-#define MINIAUDIO_IMPLEMENTATION
+#ifndef PLAYER_H
+#define PLAYER_H
 #include "miniaudio.h"
 #include "songlist.h"
 
@@ -18,3 +18,4 @@ class Player {
   void stopSong();
   float getSongLength();
 };
+#endif

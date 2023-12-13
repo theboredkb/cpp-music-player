@@ -4,6 +4,12 @@
 
 #include <iostream>
 
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
 using namespace std;
 
 Menu::Menu() {}
@@ -20,68 +26,63 @@ void Menu::displayOpening() {
   cout << "         //////////////////////////////////" << endl;
 }
 
-
-
-void Menu::displayMenu()
-{
-    cout << "         //////////////////////////////////" << endl;
-    cout << "         //             Menu             //" << endl;
-    cout << "         //     (a) Add to Music List    //" << endl;
-    cout << "         //     (b) Sort By Song         //" << endl;
-    cout << "         //     (c) Sort By Artist       //" << endl;
-    cout << "         //     (d) Sort By Genre        //" << endl;
-    cout << "         //     (e) Sort By Album        //" << endl;
-    cout << "         //     (f) Sort By File Name    //" << endl;
-    cout << "         //     (g) List Current Order   //" << endl;
-    cout << "         //     (h) Search Song List     //" << endl;
-    cout << "         //     (q) Exit                 //" << endl;
-    cout << "         //////////////////////////////////" << endl;
+void Menu::displayMenu() {
+  cout << "         //////////////////////////////////" << endl;
+  cout << "         //             Menu             //" << endl;
+  cout << "         //     (a) Add to Music List    //" << endl;
+  cout << "         //     (b) Sort By Song         //" << endl;
+  cout << "         //     (c) Sort By Artist       //" << endl;
+  cout << "         //     (d) Sort By Genre        //" << endl;
+  cout << "         //     (e) Sort By Album        //" << endl;
+  cout << "         //     (f) Sort By File Name    //" << endl;
+  cout << "         //     (g) List Current Order   //" << endl;
+  cout << "         //     (h) Search Song List     //" << endl;
+  cout << "         //     (p) Play Song List     //" << endl;
+  cout << "         //     (q) Exit                 //" << endl;
+  cout << "         //////////////////////////////////" << endl;
 }
 
-void Menu::searchMenu()
-{
-    cout << "         //////////////////////////////////" << endl;
-    cout << "         //            Search            //" << endl;
-    cout << "         //     (a) Sort By Song         //" << endl;
-    cout << "         //     (b) Sort By Artist       //" << endl;
-    cout << "         //     (c) Sort By Genre        //" << endl;
-    cout << "         //     (d) Sort By Album        //" << endl;
-    cout << "         //     (e) Sort By File Name    //" << endl;
-    cout << "         //////////////////////////////////" << endl;
+void Menu::searchMenu() {
+  cout << "         //////////////////////////////////" << endl;
+  cout << "         //            Search            //" << endl;
+  cout << "         //     (a) Sort By Song         //" << endl;
+  cout << "         //     (b) Sort By Artist       //" << endl;
+  cout << "         //     (c) Sort By Genre        //" << endl;
+  cout << "         //     (d) Sort By Album        //" << endl;
+  cout << "         //     (e) Sort By File Name    //" << endl;
+  cout << "         //////////////////////////////////" << endl;
 }
 
-void Menu::searchOption()
-{
+void Menu::searchOption() {
   searchMenu();
   char userOption;
   string userInput;
 
   cin >> userOption;
 
-
   userOption = tolower(userOption);
-  
-    cout << "Enter below: " << endl;
-    cin >> userInput;
-  switch(userOption) {
+
+  cout << "Enter below: " << endl;
+  cin >> userInput;
+  switch (userOption) {
     case 'a':
-    songList.searchSong(userInput);
-    break;
+      songList.searchSong(userInput);
+      break;
     case 'b':
-    songList.searchArtist(userInput);
-    break;
+      songList.searchArtist(userInput);
+      break;
     case 'c':
-    songList.searchGenre(userInput);
-    break;
+      songList.searchGenre(userInput);
+      break;
     case 'd':
-    songList.searchAlbum(userInput);
-    break;
+      songList.searchAlbum(userInput);
+      break;
     case 'e':
-    songList.searchFile(userInput);
-    break;
-    
+      songList.searchFile(userInput);
+      break;
+
     default:
-    cout << "Invalid Option" << endl;
+      cout << "Invalid Option" << endl;
   }
 }
 
@@ -119,12 +120,43 @@ Song Menu::createSong() {
     cout << "Enter the filename below: " << endl;
     getline(cin, songFile);
     if (songFile.empty()) throw string("File");
+    songFile = "songs/" + songFile;
 
   } catch (string e) {
     cout << e << " of the song cannot be empty!" << endl;
   }
 
   return Song(songTitle, songArtist, songGenre, songAlbum, songFile);
+}
+
+void Menu::playSongList() {
+  cout << "These are the songs in your list: " << endl;
+  songList.printSong();
+
+  Song *songHead = songList.getHeadSong();
+  if (songHead == nullptr) {
+    cout << "No songs in list." << endl;
+    return;
+  }
+
+  while (songHead != nullptr) {
+    player.loadSong(songHead->getFileName());
+    player.playSong();
+    displayBar();
+    cout << "Playing " << songHead->getSongTitle() << " by "
+         << songHead->getArtistName() << endl;
+    displayBar();
+    float songDuration = player.getSongLength();
+
+    while (songDuration > 0) {
+      sleep(1);
+      cout << "Song duration: " << songDuration << endl;
+      songDuration -= 1;
+    }
+
+    player.stopSong();
+    songHead = songHead->getNextSong();
+  }
 }
 
 void Menu::displayBar() {
@@ -173,6 +205,11 @@ void Menu::selectOption(char option) {
 
     case 'h':
       searchMenu();
+      break;
+
+    case 'p':
+      // Play Song
+      playSongList();
       break;
 
     case 'q':
