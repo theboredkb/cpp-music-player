@@ -2,7 +2,7 @@
 #include "player.h"
 #include "songlist.h"
 
-class Menu {
+class Menu : public BaseMenu {
  private:
   SongList songList;
   Player player;
@@ -10,14 +10,14 @@ class Menu {
  public:
   Menu();
 
-  void displayMenu();
+  void displayMenu() override;
   Song createSong();
-  void selectOption(char option);
+  void selectOption(char option) override;
   void displayOpening();
   void playSongList();
 
   void searchMenu();
   void searchOption();
 
-  void displayBar();
+  void displayBar() override;
 };
