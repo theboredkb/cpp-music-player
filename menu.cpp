@@ -1,4 +1,7 @@
 #include "menu.h"
+#include "openingMenu.h"
+#include "functionalityMenu.h"
+#include "searchMenu.h"
 
 #include <ctype.h>
 
@@ -15,42 +18,19 @@ using namespace std;
 Menu::Menu() {}
 
 void Menu::displayOpening() {
-  cout << "         //////////////////////////////////" << endl;
-  cout << "         //                              //" << endl;
-  cout << "         //         Music Player         //" << endl;
-  cout << "         //              by              //" << endl;
-  cout << "         //         Jia Jun Yang         //" << endl;
-  cout << "         //         Elyod Abraham        //" << endl;
-  cout << "         //         Kevin Ly             //" << endl;
-  cout << "         //                              //" << endl;
-  cout << "         //////////////////////////////////" << endl;
+  OpeningMenu openingMenu;
+  openingMenu.displayMenu();
+
 }
 
 void Menu::displayMenu() {
-  cout << "         //////////////////////////////////" << endl;
-  cout << "         //             Menu             //" << endl;
-  cout << "         //     (a) Add to Music List    //" << endl;
-  cout << "         //     (b) Sort By Song         //" << endl;
-  cout << "         //     (c) Sort By Artist       //" << endl;
-  cout << "         //     (d) Sort By Genre        //" << endl;
-  cout << "         //     (e) Sort By Album        //" << endl;
-  cout << "         //     (f) Sort By File Name    //" << endl;
-  cout << "         //     (g) List Current Order   //" << endl;
-  cout << "         //     (h) Search Song List     //" << endl;
-  cout << "         //     (p) Play Song List       //" << endl;
-  cout << "         //     (q) Exit                 //" << endl;
-  cout << "         //////////////////////////////////" << endl;
+  functionalityMenu functionalityMenu;
+  functionalityMenu.displayMenu();
 }
 
 void Menu::searchMenu() {
-  cout << "         //////////////////////////////////" << endl;
-  cout << "         //            Search            //" << endl;
-  cout << "         //     (a) Sort By Song         //" << endl;
-  cout << "         //     (b) Sort By Artist       //" << endl;
-  cout << "         //     (c) Sort By Genre        //" << endl;
-  cout << "         //     (d) Sort By Album        //" << endl;
-  cout << "         //     (e) Sort By File Name    //" << endl;
-  cout << "         //////////////////////////////////" << endl;
+  SearchMenu searchMenu;
+  searchMenu.displayMenu();
 }
 
 void Menu::searchOption() {
