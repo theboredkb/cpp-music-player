@@ -3,7 +3,6 @@
 
 #include "song.h"
 #include "songlist.h"
-#include "menu.h"
 
 int main(){
     Song song1("Title1", "Artist1", "Genre1", "File1", "File1.mp3");
@@ -26,4 +25,11 @@ int main(){
 
     assert(songList.getHeadSong()->getSongTitle() == "Title1");
     assert(songList.getTailSong()->getSongTitle() == "Song2");
+
+    cout << "Print Songlist" << endl;
+    songList.printSong();
+
+    cout << "Check sorted by genre: " << endl;
+    songList.sortGenre();
+    songList.printSortedFunc();
 }
