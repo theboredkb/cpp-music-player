@@ -19,10 +19,6 @@ int main() {
     userInput = tolower(userInput);
     newUser.selectOption(userInput);
 
-        if(userInput == 'h'){
-            newUser.searchOption();
-        }
-
         if(userInput == 'q'){
             isActive = false;
         }
