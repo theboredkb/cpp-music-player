@@ -146,51 +146,15 @@ void SongList::searchFile(string word) {
 ////////////////////////////////////////////////////////////////////Printing
 /// Sorts
 
-void SongList::printSortedSong() {
+void SongList::printSortedFunc() {
   Song* current = sorted;
 
   while (current != nullptr) {
-    cout << current->getSongTitle() << endl;
-
-    current = current->getNextSong();
-  }
-}
-
-void SongList::printSortedArtist() {
-  Song* current = sorted;
-
-  while (current != nullptr) {
-    cout << current->getArtistName() << endl;
-
-    current = current->getNextSong();
-  }
-}
-
-void SongList::printSortedGenre() {
-  Song* current = sorted;
-
-  while (current != nullptr) {
-    cout << current->getSongGenre() << endl;
-
-    current = current->getNextSong();
-  }
-}
-
-void SongList::printSortedAlbum() {
-  Song* current = sorted;
-
-  while (current != nullptr) {
-    cout << current->getSongAlbum() << endl;
-
-    current = current->getNextSong();
-  }
-}
-
-void SongList::printSortedFile() {
-  Song* current = sorted;
-
-  while (current != nullptr) {
-    cout << current->getFileName() << endl;
+    cout << "Song: " << current->getSongTitle()
+         << ", Artist: " << current->getArtistName()
+         << ", Genre: " << current->getSongGenre()
+         << ", Album: " << current->getSongAlbum()
+         << ", FileName: " << current->getFileName() << endl;
 
     current = current->getNextSong();
   }
@@ -208,7 +172,7 @@ void SongList::sortTitle() {
     sortedList.sortInsertTitle(new Song(*current));
     current = next;
   }
-  sortedList.printSortedSong();
+  sortedList.printSortedFunc();
   sortedList.resetSorted();
 }
 
@@ -239,7 +203,7 @@ void SongList::sortArtist() {
     current = next;
   }
 
-  sortedList.printSortedArtist();
+  sortedList.printSortedFunc();
   sortedList.resetSorted();
 }
 
@@ -270,7 +234,7 @@ void SongList::sortGenre() {
     current = next;
   }
 
-  sortedList.printSortedGenre();
+  sortedList.printSortedFunc();
   sortedList.resetSorted();
 }
 
@@ -301,7 +265,7 @@ void SongList::sortAlbum() {
     current = next;
   }
 
-  sortedList.printSortedAlbum();
+  sortedList.printSortedFunc();
   sortedList.resetSorted();
 }
 
@@ -332,7 +296,7 @@ void SongList::sortFile() {
     current = next;
   }
 
-  sortedList.printSortedFile();
+  sortedList.printSortedFunc();
   sortedList.resetSorted();
 }
 

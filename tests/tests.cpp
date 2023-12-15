@@ -16,12 +16,14 @@ int main(){
 
     SongList songList;
 
-    Song song2("Song2", "Artist2", "Genre2", "File2", "File2.mp3");
-    songList.push_back(song2);
+    songList.push_back(song1);
 
     Song song3("Song3", "Artist3", "Genre3",  "File3", "File3.mp3");
     songList.push_back(song3);
 
-    assert(songList.getHeadSong()->getSongTitle() == "Song2");
-    assert(songList.getTailSong()->getSongTitle() == "Song3");
+    Song song2("Song2", "Artist2", "Genre2", "File2", "File2.mp3");
+    songList.push_back(song2);
+
+    assert(songList.getHeadSong()->getSongTitle() == "Title1");
+    assert(songList.getTailSong()->getSongTitle() == "Song2");
 }

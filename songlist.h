@@ -24,11 +24,7 @@ class SongList {
 
   Song* getSorted();
   void setSorted(Song* node);
-  void printSortedSong();
-  void printSortedArtist();
-  void printSortedGenre();
-  void printSortedAlbum();
-  void printSortedFile();
+  void printSortedFunc();
 
   void resetSorted();
 
